@@ -1,0 +1,40 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPCTestApp.Generated";
+
+package sample;
+
+service NumberService {
+	rpc NegateNumber (Number) returns (Number);
+
+	rpc MultiplyNumbers (NumberPair) returns (Number);
+
+	rpc IsPrime (Number) returns (BoolResponse);
+
+	rpc GetDivisors (Number) returns (stream Number);
+}
+
+message Number {
+	int32 content = 1;
+}
+
+message NumberPair {
+	int32 x = 1;
+	int32 y = 2;
+}
+
+message BoolResponse {
+	bool result = 1;
+}
+
+service StringService {
+	rpc ReverseString (StringRequest) returns (StringResponse);
+}
+
+message StringRequest {
+	string str = 1;
+}
+
+message StringResponse {
+	string str = 1;
+}

@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPCTestApp.Generated";
+
+package sample;
+
+service NumberNegaterService {
+	rpc NegateNumber (NumberRequest) returns (NumberResponse);
+}
+
+message NumberRequest {
+	int32 number = 1;
+}
+
+message NumberResponse {
+	int32 number = 1;
+}
